@@ -1,0 +1,1 @@
+export { default as YTVideoListView } from './YTVideoList.view'
