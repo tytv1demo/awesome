@@ -1,0 +1,1 @@
+export { default as TWIChatChannelList } from './TWIChatChannelList.view'

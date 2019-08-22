@@ -8,11 +8,13 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "add": "^2.0.6",
     "react": "16.8.6",
-    "react-native": "0.60.5",
+    "react-native": "^0.60.5",
     "react-native-fast-image": "^7.0.2",
     "react-native-lightbox": "^0.8.0",
-    "react-native-twilio-video": "1.1.0"
+    "react-native-twilio-video": "1.1.6",
+    "yarn": "^1.17.3"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
