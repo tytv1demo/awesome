@@ -3,14 +3,15 @@ import {
     View,
     Text,
     GestureResponderEvent,
-    Animated
+    Animated,
+    TouchableWithoutFeedback
 } from 'react-native'
 
 import Image from 'react-native-fast-image'
-import { TwiRoomView } from 'react-native-twilio-video'
 //@ts-ignore
 import Lightbox from "react-native-lightbox";
 
+import YTVideoListBridge from './YTVideoList.bridge'
 import { YTVideoItemStyles } from './styles';
 
 const AnimValue = Animated.Value
@@ -37,6 +38,12 @@ const YTVideoItem: React.FC = (props) => {
             }
         ).start()
     }
+    
+    const doPushToDetail = () => {
+        YTVideoListBridge.pushToDetail()
+    }
+
+    // MARK: render
 
     const renderInfomation = () => {
         return (
@@ -62,17 +69,16 @@ const YTVideoItem: React.FC = (props) => {
                 </Lightbox>
 
                 {renderInfomation()}
-                <TwiRoomView shareVideo={true} />
             </View>
         )
     }
     return (
         <View style={YTVideoItemStyles.wrapper}>
-
-            <Lightbox
+            <TouchableWithoutFeedback
+                onPress={doPushToDetail}
             >
                 {renderContent()}
-            </Lightbox>
+            </TouchableWithoutFeedback>
 
         </View>
     )

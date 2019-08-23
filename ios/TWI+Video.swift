@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 class TWIVideoController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()

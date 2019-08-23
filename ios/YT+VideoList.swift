@@ -7,11 +7,18 @@
 //
 
 import Foundation
+import AVKit
 
 class YTVideoListController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
+    YTVideoListManager.shared.view = self
     view = ReactNativeHelper.shared.getRNView(name: "YTVideoList")
-   
+
   }
+  func goToDetail(){
+    let vc: UIViewController = YTVideoViewController()
+    navigationController?.pushViewController(vc, animated: true)
+  }
+
 }

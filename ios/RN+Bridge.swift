@@ -16,8 +16,8 @@ class RNBridge:NSObject, RCTBridgeDelegate {
     #if DEBUG
     return URL(string: "http://192.168.1.145:8081/index.bundle?platform=ios")!
     #else
-//    return URL(string: "http://localhost:8081/index.bundle?platform=ios")!
-    return URL(string: "http://192.168.1.145:8081/index.bundle?platform=ios")!
+    return URL(string: "http://localhost:8081/index.bundle?platform=ios")!
+//    return URL(string: "http://192.168.1.145:8081/index.bundle?platform=ios")!
     //    return Bundle.main.url(forResource: "main", withExtension: "jsbundle")!
     #endif
   }

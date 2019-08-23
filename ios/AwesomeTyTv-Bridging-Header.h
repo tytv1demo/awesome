@@ -9,4 +9,4 @@
 #import <React/RCTUtils.h>
 #import <React/RCTConvert.h>
 #import <React/RCTBundleURLProvider.h>
-#import <yoga/Yoga.h>
+#import <React/RCTEventEmitter.h>
