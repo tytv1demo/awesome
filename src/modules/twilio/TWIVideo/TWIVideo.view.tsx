@@ -10,7 +10,10 @@ interface TWIVideoViewState {
     isConnected: boolean,
     participants: Array<RemoteParticipant>,
     shareVideo: boolean,
-    shareAudio: boolean
+    shareAudio: boolean,
+    token: string,
+    error: string,
+    status: "INIT" | "LOADING" | "DONE"
 }
 
 class TWIVideoView extends React.PureComponent<any, TWIVideoViewState> {
@@ -26,37 +29,46 @@ class TWIVideoView extends React.PureComponent<any, TWIVideoViewState> {
             isConnected: false,
             participants: [],
             shareVideo: true,
-            shareAudio: true
+            shareAudio: true,
+            token: "",
+            error: "",
+            status: "INIT"
         }
-       
+
     }
 
-    componentDidMount(){
+    componentDidMount() {
         AppState.addEventListener("change", this.onAppSateChange)
+        this.setState({ status: "LOADING" })
+        fetch("https://api-dev.spltty.com/api/user/twilio_token", {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                identity: ((Math.random() * 10000) + new Date().getTime()).toFixed(0) + Platform.OS,
+                platform: Platform.OS
+            })
+        }).then(response => {
+            return response.json();
+        }).then(({ data }) => {
+            const { token } = data
+            this.setState({ token })
+        }).catch((error) => {
+            this.setState({ error })
+        }).then(() => {
+            this.setState({ status: "DONE" })
+        })
     }
 
     componentWillUnmount() {
         AppState.removeEventListener("change", this.onAppSateChange)
     }
-    //MARK: EVENT
 
-    onAppSateChange = (status: AppStateStatus) => {
-        switch (status) {
-            case "active":
-                this.setState({ shareVideo: this.activeShareVideoState })
-                break;
-            case "background":
-                this.activeShareVideoState = this.state.shareVideo
-                this.toggleShareVideo()
-        }
-    }
-
-    //
+    // MARK: METHOD
     connect = () => {
-        const token = Platform.select({
-            ios: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzViYmM1MTk5OTEzMDk5MjNiODQxZGIyZWFkNDU4NzdhLTE1NjY0NTgyMjYiLCJpc3MiOiJTSzViYmM1MTk5OTEzMDk5MjNiODQxZGIyZWFkNDU4NzdhIiwic3ViIjoiQUM4MmM0MjNkY2Y5MzE1NDZmYmM3YjViMTRjMWJmMWQ5OCIsImV4cCI6MTU2NjQ2MTgyNiwiZ3JhbnRzIjp7ImlkZW50aXR5IjoiaW9zIiwidmlkZW8iOnt9fX0.PuosuRTARb8Eq6mBQx7G-VAE6Qh1MaGNcGkVBcaQ04I",
-            android: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzViYmM1MTk5OTEzMDk5MjNiODQxZGIyZWFkNDU4NzdhLTE1NjY0NTgyNDAiLCJpc3MiOiJTSzViYmM1MTk5OTEzMDk5MjNiODQxZGIyZWFkNDU4NzdhIiwic3ViIjoiQUM4MmM0MjNkY2Y5MzE1NDZmYmM3YjViMTRjMWJmMWQ5OCIsImV4cCI6MTU2NjQ2MTg0MCwiZ3JhbnRzIjp7ImlkZW50aXR5IjoiYW5kcm9pZCIsInZpZGVvIjp7fX19.sJU-cmKFDVtPXuNdEzTtlgvHcVS60ErH-99WD_JazmM"
-        })
+        const { token } = this.state
         this.roomView.nativeConnectWithOptions(
             token,
             "test"
@@ -80,7 +92,18 @@ class TWIVideoView extends React.PureComponent<any, TWIVideoViewState> {
         this.roomView.nativeFlipCamera()
     }
 
-    //
+    // MARK: Listen event
+    onAppSateChange = (status: AppStateStatus) => {
+        switch (status) {
+            case "active":
+                this.setState({ shareVideo: this.activeShareVideoState })
+                break;
+            case "background":
+                this.activeShareVideoState = this.state.shareVideo
+                this.toggleShareVideo()
+        }
+    }
+
     onDidConnect = (participants: Array<RemoteParticipant>) => {
 
         this.setState({ participants, isConnected: true })
@@ -100,11 +123,14 @@ class TWIVideoView extends React.PureComponent<any, TWIVideoViewState> {
     // MARK: RENDER
 
     renderControls = () => {
-        const { isConnected, shareAudio, shareVideo } = this.state
+        const { isConnected, shareAudio, shareVideo, status } = this.state
+        const isLoading = status === "LOADING"
+
         return (
             <View style={TWIVideoViewStyles.controls}>
                 <ControlButton
                     size={50}
+                    isLoading={isLoading}
                     onPress={this.toggleShareAudio}
                     color="orange"
                     iconStyle={{ width: 30, height: 30 }}
@@ -112,6 +138,7 @@ class TWIVideoView extends React.PureComponent<any, TWIVideoViewState> {
                 />
                 <ControlButton
                     size={50}
+                    isLoading={isLoading}
                     color={isConnected ? "red" : "green"}
                     onPress={isConnected ? this.disConnect : this.connect}
                     iconStyle={{ width: 30, height: 30 }}
@@ -119,6 +146,7 @@ class TWIVideoView extends React.PureComponent<any, TWIVideoViewState> {
                 />
                 <ControlButton
                     size={50}
+                    isLoading={isLoading}
                     onPress={this.toggleShareVideo}
                     color="green"
                     iconStyle={{ width: 30, height: 30 }}
@@ -147,14 +175,7 @@ class TWIVideoView extends React.PureComponent<any, TWIVideoViewState> {
                     {participants.map(par => <TwiRemoteView
                         key={par.identity}
                         participantIdentity={par.identity}
-                        style={{
-                            position: "absolute",
-                            top: 0,
-                            left: 0,
-                            right: 0,
-                            bottom: 0,
-                            zIndex: 1
-                        }}
+                        style={{ flex: 1 }}
                     />)}
                     <TwiPreview
                         style={TWIVideoViewStyles.preview}

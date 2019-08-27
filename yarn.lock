@@ -5278,10 +5278,10 @@ react-native-lightbox@^0.8.0:
   dependencies:
     prop-types "^15.5.10"
 
-react-native-twilio-video@1.1.6:
-  version "1.1.6"
-  resolved "https://registry.yarnpkg.com/react-native-twilio-video/-/react-native-twilio-video-1.1.6.tgz#b48a855e2d051481d9531b1e3cd868969310a7c9"
-  integrity sha512-5cJxx+BfKJ7h6JojYXYherY41VNSE3nMslmV4/33DPxAj4T7IzbA0KLjwRJbAVIRG8nxlvLlOWsj8qXbnILedw==
+react-native-twilio-video@1.1.8:
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/react-native-twilio-video/-/react-native-twilio-video-1.1.8.tgz#210717424607a673baa971a9a3bf1602a6be895f"
+  integrity sha512-ccZtehN0WUsqsaZaXOmWymQqqVBwYQ6/UU1pLrVJCyTc0PHZDw+tqmfyjU+dFWK8myHV6GnvnfZsVvXThxYLoQ==
 
 react-native@^0.60.5:
   version "0.60.5"

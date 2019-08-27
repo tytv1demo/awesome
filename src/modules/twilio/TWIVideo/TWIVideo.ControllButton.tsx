@@ -1,5 +1,6 @@
 import React from 'react'
-import { TouchableOpacity, Image, StyleProp, ImageStyle, ViewStyle } from 'react-native'
+import { TouchableOpacity, StyleProp, ImageStyle, ViewStyle, ActivityIndicator } from 'react-native'
+import Image from 'react-native-fast-image'
 
 interface ControlButtonProps {
     containerStyle?: StyleProp<ViewStyle>,
@@ -7,6 +8,7 @@ interface ControlButtonProps {
     iconStyle?: StyleProp<ImageStyle>
     color?: string,
     size?: number,
+    isLoading?: boolean
     onPress?: () => void
 }
 
@@ -22,12 +24,26 @@ export const ControlButton: React.FC<ControlButtonProps> = (props) => {
         color = DF_COLOR,
         icon,
         onPress,
-        iconStyle
+        iconStyle,
+        //
+        isLoading
     } = props
 
     let source: Object = icon;
     if (typeof icon === "string") {
         source = { uri: icon }
+    }
+
+    const renderContent = () => {
+        if (isLoading) {
+            return <ActivityIndicator color="white" />
+        }
+        return (
+            <Image
+                style={iconStyle}
+                source={source}
+            />
+        )
     }
 
     return (
@@ -42,10 +58,7 @@ export const ControlButton: React.FC<ControlButtonProps> = (props) => {
                 alignItems: "center",
             }, containerStyle]}
         >
-            <Image
-                style={iconStyle}
-                source={source}
-            />
+            {renderContent()}
         </TouchableOpacity>
     )
 }
