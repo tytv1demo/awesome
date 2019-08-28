@@ -14,7 +14,7 @@ class AppDelegate: UIResponder {
   var window: UIWindow?
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
     TwilioVideo.audioDevice = TVIDefaultAudioDevice()
-    let rootViewController: UIViewController = TWIVideoController()
+    let rootViewController: UIViewController = YTVideoViewController()
     
     let nav: UINavigationController = UINavigationController(rootViewController: rootViewController)
     

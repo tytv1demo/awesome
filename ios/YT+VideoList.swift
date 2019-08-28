@@ -7,9 +7,9 @@
 //
 
 import Foundation
-import AVKit
 
 class YTVideoListController: UIViewController {
+
   override func viewDidLoad() {
     super.viewDidLoad()
     YTVideoListManager.shared.view = self

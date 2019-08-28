@@ -19,6 +19,11 @@
 		B6097448230FB9C000B37C7B /* YTVideoList+bridge.m in Sources */ = {isa = PBXBuildFile; fileRef = B6097447230FB9C000B37C7B /* YTVideoList+bridge.m */; };
 		B609744C230FCAF900B37C7B /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B609744B230FCAF900B37C7B /* VideoPlayer.swift */; };
 		B6563C57230D3A7A005940D5 /* TWI+Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6563C56230D3A7A005940D5 /* TWI+Video.swift */; };
+		B689C8EA23161FCD00664B26 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B689C8E923161FCD00664B26 /* UIView+Extension.swift */; };
+		B689C8ED23162A9400664B26 /* Downloader+PopupVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = B689C8EC23162A9400664B26 /* Downloader+PopupVIew.swift */; };
+		B689C8EF231631C600664B26 /* DownloaderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B689C8EE231631C600664B26 /* DownloaderItem.swift */; };
+		B689C8F123165D8200664B26 /* DownloaderPopupHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B689C8F023165D8200664B26 /* DownloaderPopupHeader.swift */; };
+		B689C8F323165DA400664B26 /* DownloaderPopupThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B689C8F223165DA400664B26 /* DownloaderPopupThumbnail.swift */; };
 		B6B7E407230BEB98003F33D8 /* Alamofire+Implementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B7E406230BEB98003F33D8 /* Alamofire+Implementation.swift */; };
 		B6B7E409230BF346003F33D8 /* Alamofire+RequestAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B7E408230BF346003F33D8 /* Alamofire+RequestAdapter.swift */; };
 		B6B7E40B230BF400003F33D8 /* Alamofire+RequestExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B7E40A230BF400003F33D8 /* Alamofire+RequestExt.swift */; };
@@ -71,6 +76,11 @@
 		B609744B230FCAF900B37C7B /* VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
 		B6563C53230D2BD4005940D5 /* AwesomeTyTv.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = AwesomeTyTv.entitlements; path = AwesomeTyTv/AwesomeTyTv.entitlements; sourceTree = "<group>"; };
 		B6563C56230D3A7A005940D5 /* TWI+Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TWI+Video.swift"; sourceTree = "<group>"; };
+		B689C8E923161FCD00664B26 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		B689C8EC23162A9400664B26 /* Downloader+PopupVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Downloader+PopupVIew.swift"; sourceTree = "<group>"; };
+		B689C8EE231631C600664B26 /* DownloaderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderItem.swift; sourceTree = "<group>"; };
+		B689C8F023165D8200664B26 /* DownloaderPopupHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderPopupHeader.swift; sourceTree = "<group>"; };
+		B689C8F223165DA400664B26 /* DownloaderPopupThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderPopupThumbnail.swift; sourceTree = "<group>"; };
 		B6B7E406230BEB98003F33D8 /* Alamofire+Implementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alamofire+Implementation.swift"; sourceTree = "<group>"; };
 		B6B7E408230BF346003F33D8 /* Alamofire+RequestAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alamofire+RequestAdapter.swift"; sourceTree = "<group>"; };
 		B6B7E40A230BF400003F33D8 /* Alamofire+RequestExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alamofire+RequestExt.swift"; sourceTree = "<group>"; };
@@ -223,7 +233,9 @@
 		B6097449230FCAD000B37C7B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B689C8EB23162A7100664B26 /* Downloader */,
 				B609744A230FCADB00B37C7B /* VideoPlayer */,
+				B689C8E923161FCD00664B26 /* UIView+Extension.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -250,6 +262,17 @@
 				B6563C56230D3A7A005940D5 /* TWI+Video.swift */,
 			);
 			name = Video;
+			sourceTree = "<group>";
+		};
+		B689C8EB23162A7100664B26 /* Downloader */ = {
+			isa = PBXGroup;
+			children = (
+				B689C8EC23162A9400664B26 /* Downloader+PopupVIew.swift */,
+				B689C8EE231631C600664B26 /* DownloaderItem.swift */,
+				B689C8F023165D8200664B26 /* DownloaderPopupHeader.swift */,
+				B689C8F223165DA400664B26 /* DownloaderPopupThumbnail.swift */,
+			);
+			name = Downloader;
 			sourceTree = "<group>";
 		};
 		B6B7E405230BEB7A003F33D8 /* Networking */ = {
@@ -661,8 +684,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6097442230FA4A300B37C7B /* YTVideoList+manager.swift in Sources */,
+				B689C8F323165DA400664B26 /* DownloaderPopupThumbnail.swift in Sources */,
+				B689C8EA23161FCD00664B26 /* UIView+Extension.swift in Sources */,
+				B689C8F123165D8200664B26 /* DownloaderPopupHeader.swift in Sources */,
 				B6B7E407230BEB98003F33D8 /* Alamofire+Implementation.swift in Sources */,
 				B6B7E412230C0115003F33D8 /* RN+Utils.swift in Sources */,
+				B689C8ED23162A9400664B26 /* Downloader+PopupVIew.swift in Sources */,
+				B689C8EF231631C600664B26 /* DownloaderItem.swift in Sources */,
 				B6B7E414230C0136003F33D8 /* RN+Bridge.swift in Sources */,
 				B6563C57230D3A7A005940D5 /* TWI+Video.swift in Sources */,
 				B6097444230FB95E00B37C7B /* YT+VideoView.swift in Sources */,
@@ -782,6 +810,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.modulemap\" -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/PromiseKit/PromiseKit.modulemap\" -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/RNTwilioVideo/RNTwilioVideo.modulemap\" -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/SwiftyJSON/SwiftyJSON.modulemap\" -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = AwesomeTyTv;
 				SWIFT_OBJC_BRIDGING_HEADER = "AwesomeTyTv-Bridging-Header.h";

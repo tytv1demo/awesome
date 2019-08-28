@@ -8,8 +8,12 @@
 
 import Foundation
 import AVFoundation
+import Alamofire
 
 class VideoPlayer: UIView {
+  
+  public var downloadBtn: UIButton!
+  public var dowloadProgress: UIProgressView!
   
   fileprivate var url: URL!
   
@@ -23,13 +27,25 @@ class VideoPlayer: UIView {
   }
   override init(frame: CGRect) {
     super.init(frame: frame)
+    initLayout()
   }
   
   convenience init(frame: CGRect = CGRect.zero, videoUrl: String) {
     self.init(frame: frame)
     url = URL(string: videoUrl);
   }
-  
+  func initLayout(){
+    downloadBtn = UIButton()
+    downloadBtn.setTitle("Down", for: [])
+    downloadBtn.backgroundColor = .red
+    downloadBtn.addTarget(self, action: #selector(download), for: .touchUpInside)
+    self.addSubview(downloadBtn)
+    downloadBtn.fixWithWHLT(self, w: 50, h: 50, l: 15, t: 100)
+    
+    dowloadProgress = UIProgressView(progressViewStyle: .default)
+    self.addSubview(dowloadProgress)
+    dowloadProgress.fixInView(self, t: 180, r: 5, l: 5, h: 5)
+  }
   func configure(){
     avAsset = AVAsset(url: url)
     avPlayerItem = AVPlayerItem(asset: avAsset)
@@ -42,8 +58,18 @@ class VideoPlayer: UIView {
     player.play()
   }
   
+  @objc func download(){
+    Alamofire.download(url)
+      .downloadProgress { (progress) in
+        self.dowloadProgress.setProgress(Float(progress.fractionCompleted), animated: true)
+      }.response { (response) in
+        print(response)
+    }
+  }
+  
   override func didMoveToSuperview() {
     super.didMoveToSuperview()
     configure()
   }
+  
 }
