@@ -59,12 +59,7 @@ class VideoPlayer: UIView {
   }
   
   @objc func download(){
-    Alamofire.download(url)
-      .downloadProgress { (progress) in
-        self.dowloadProgress.setProgress(Float(progress.fractionCompleted), animated: true)
-      }.response { (response) in
-        print(response)
-    }
+    Downloader.shared.pushDownloadTask(rawUrl: url.absoluteString)
   }
   
   override func didMoveToSuperview() {

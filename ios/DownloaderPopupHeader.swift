@@ -19,7 +19,7 @@ class PopupDownloaderHeader: UIView {
   }
   func initLayout() {
     
-    self.backgroundColor = .groupTableViewBackground
+    self.backgroundColor = .green
     
     logoView = UIImageView(image: UIImage(named: "downloader"))
     self.addSubview(logoView)

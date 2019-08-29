@@ -18,8 +18,8 @@ class YTVideoViewController: UIViewController {
       view.backgroundColor = .white
       playVideo()
     
-    popupDownloader = PopupDownloader()
-    popupDownloader.isThumbnailMode = false
+    popupDownloader = PopupDownloader(downloader: Downloader.shared)
+    popupDownloader.isThumbnailMode = true
   }
   func playVideo(){
     playerView = VideoPlayer(videoUrl: "http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v")

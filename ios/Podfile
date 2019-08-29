@@ -34,6 +34,10 @@ target 'AwesomeTyTv' do
   pod 'Alamofire', '~> 4.5' 
   pod 'SwiftyJSON', '~> 4.0'
   pod "PromiseKit", "~> 6.8"
+  pod 'UICircularProgressRing'
+  pod 'RxSwift', '~> 5'
+  pod 'RxCocoa', '~> 5'
+  pod 'SwiftMessages'
   use_native_modules!
 end
 

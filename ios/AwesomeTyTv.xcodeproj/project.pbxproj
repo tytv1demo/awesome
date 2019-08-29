@@ -18,12 +18,16 @@
 		B6097444230FB95E00B37C7B /* YT+VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6097443230FB95E00B37C7B /* YT+VideoView.swift */; };
 		B6097448230FB9C000B37C7B /* YTVideoList+bridge.m in Sources */ = {isa = PBXBuildFile; fileRef = B6097447230FB9C000B37C7B /* YTVideoList+bridge.m */; };
 		B609744C230FCAF900B37C7B /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B609744B230FCAF900B37C7B /* VideoPlayer.swift */; };
+		B6178D0D2317B70D0053486C /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6178D0C2317B70D0053486C /* UIStackView+Extension.swift */; };
 		B6563C57230D3A7A005940D5 /* TWI+Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6563C56230D3A7A005940D5 /* TWI+Video.swift */; };
 		B689C8EA23161FCD00664B26 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B689C8E923161FCD00664B26 /* UIView+Extension.swift */; };
 		B689C8ED23162A9400664B26 /* Downloader+PopupVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = B689C8EC23162A9400664B26 /* Downloader+PopupVIew.swift */; };
 		B689C8EF231631C600664B26 /* DownloaderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B689C8EE231631C600664B26 /* DownloaderItem.swift */; };
 		B689C8F123165D8200664B26 /* DownloaderPopupHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B689C8F023165D8200664B26 /* DownloaderPopupHeader.swift */; };
 		B689C8F323165DA400664B26 /* DownloaderPopupThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B689C8F223165DA400664B26 /* DownloaderPopupThumbnail.swift */; };
+		B689C8F623166E3A00664B26 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B689C8F523166E3A00664B26 /* Downloader.swift */; };
+		B689C8F82316721200664B26 /* DownloadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = B689C8F72316721200664B26 /* DownloadTask.swift */; };
+		B689C8FA231674E900664B26 /* DowloadTaskCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B689C8F9231674E900664B26 /* DowloadTaskCollection.swift */; };
 		B6B7E407230BEB98003F33D8 /* Alamofire+Implementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B7E406230BEB98003F33D8 /* Alamofire+Implementation.swift */; };
 		B6B7E409230BF346003F33D8 /* Alamofire+RequestAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B7E408230BF346003F33D8 /* Alamofire+RequestAdapter.swift */; };
 		B6B7E40B230BF400003F33D8 /* Alamofire+RequestExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B7E40A230BF400003F33D8 /* Alamofire+RequestExt.swift */; };
@@ -74,6 +78,7 @@
 		B6097443230FB95E00B37C7B /* YT+VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YT+VideoView.swift"; sourceTree = "<group>"; };
 		B6097447230FB9C000B37C7B /* YTVideoList+bridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "YTVideoList+bridge.m"; sourceTree = "<group>"; };
 		B609744B230FCAF900B37C7B /* VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
+		B6178D0C2317B70D0053486C /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
 		B6563C53230D2BD4005940D5 /* AwesomeTyTv.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = AwesomeTyTv.entitlements; path = AwesomeTyTv/AwesomeTyTv.entitlements; sourceTree = "<group>"; };
 		B6563C56230D3A7A005940D5 /* TWI+Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TWI+Video.swift"; sourceTree = "<group>"; };
 		B689C8E923161FCD00664B26 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -81,6 +86,9 @@
 		B689C8EE231631C600664B26 /* DownloaderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderItem.swift; sourceTree = "<group>"; };
 		B689C8F023165D8200664B26 /* DownloaderPopupHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderPopupHeader.swift; sourceTree = "<group>"; };
 		B689C8F223165DA400664B26 /* DownloaderPopupThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderPopupThumbnail.swift; sourceTree = "<group>"; };
+		B689C8F523166E3A00664B26 /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
+		B689C8F72316721200664B26 /* DownloadTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTask.swift; sourceTree = "<group>"; };
+		B689C8F9231674E900664B26 /* DowloadTaskCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DowloadTaskCollection.swift; sourceTree = "<group>"; };
 		B6B7E406230BEB98003F33D8 /* Alamofire+Implementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alamofire+Implementation.swift"; sourceTree = "<group>"; };
 		B6B7E408230BF346003F33D8 /* Alamofire+RequestAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alamofire+RequestAdapter.swift"; sourceTree = "<group>"; };
 		B6B7E40A230BF400003F33D8 /* Alamofire+RequestExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alamofire+RequestExt.swift"; sourceTree = "<group>"; };
@@ -236,6 +244,7 @@
 				B689C8EB23162A7100664B26 /* Downloader */,
 				B609744A230FCADB00B37C7B /* VideoPlayer */,
 				B689C8E923161FCD00664B26 /* UIView+Extension.swift */,
+				B6178D0C2317B70D0053486C /* UIStackView+Extension.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -271,13 +280,24 @@
 				B689C8EE231631C600664B26 /* DownloaderItem.swift */,
 				B689C8F023165D8200664B26 /* DownloaderPopupHeader.swift */,
 				B689C8F223165DA400664B26 /* DownloaderPopupThumbnail.swift */,
+				B689C8F9231674E900664B26 /* DowloadTaskCollection.swift */,
 			);
 			name = Downloader;
+			sourceTree = "<group>";
+		};
+		B689C8F423166E2700664B26 /* Woker */ = {
+			isa = PBXGroup;
+			children = (
+				B689C8F523166E3A00664B26 /* Downloader.swift */,
+				B689C8F72316721200664B26 /* DownloadTask.swift */,
+			);
+			name = Woker;
 			sourceTree = "<group>";
 		};
 		B6B7E405230BEB7A003F33D8 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				B689C8F423166E2700664B26 /* Woker */,
 				B6B7E406230BEB98003F33D8 /* Alamofire+Implementation.swift */,
 				B6B7E408230BF346003F33D8 /* Alamofire+RequestAdapter.swift */,
 				B6B7E40A230BF400003F33D8 /* Alamofire+RequestExt.swift */,
@@ -347,6 +367,7 @@
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				C08115B60350961C0C32BFFA /* [CP] Embed Pods Frameworks */,
+				6C2309577115BBCCB97BE075 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -568,6 +589,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		6C2309577115BBCCB97BE075 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AwesomeTyTv/Pods-AwesomeTyTv-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/SwiftMessages/SwiftMessages.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SwiftMessages.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AwesomeTyTv/Pods-AwesomeTyTv-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9300C1449B7645907195C76C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -690,6 +729,8 @@
 				B6B7E407230BEB98003F33D8 /* Alamofire+Implementation.swift in Sources */,
 				B6B7E412230C0115003F33D8 /* RN+Utils.swift in Sources */,
 				B689C8ED23162A9400664B26 /* Downloader+PopupVIew.swift in Sources */,
+				B689C8FA231674E900664B26 /* DowloadTaskCollection.swift in Sources */,
+				B6178D0D2317B70D0053486C /* UIStackView+Extension.swift in Sources */,
 				B689C8EF231631C600664B26 /* DownloaderItem.swift in Sources */,
 				B6B7E414230C0136003F33D8 /* RN+Bridge.swift in Sources */,
 				B6563C57230D3A7A005940D5 /* TWI+Video.swift in Sources */,
@@ -697,7 +738,9 @@
 				B6C19743230A8BE000DF0B6A /* AppDelegate.swift in Sources */,
 				B6B7E40F230C00F0003F33D8 /* YT+VideoList.swift in Sources */,
 				B609744C230FCAF900B37C7B /* VideoPlayer.swift in Sources */,
+				B689C8F623166E3A00664B26 /* Downloader.swift in Sources */,
 				B6B7E40B230BF400003F33D8 /* Alamofire+RequestExt.swift in Sources */,
+				B689C8F82316721200664B26 /* DownloadTask.swift in Sources */,
 				B6097448230FB9C000B37C7B /* YTVideoList+bridge.m in Sources */,
 				B6B7E409230BF346003F33D8 /* Alamofire+RequestAdapter.swift in Sources */,
 			);
@@ -804,6 +847,7 @@
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = T5C8JTGRDX;
 				INFOPLIST_FILE = AwesomeTyTv/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -830,6 +874,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = T5C8JTGRDX;
 				INFOPLIST_FILE = AwesomeTyTv/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",

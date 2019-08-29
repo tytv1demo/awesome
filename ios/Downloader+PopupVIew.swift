@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import RxSwift
+import PromiseKit
 
 class PopupDownloader: UIView {
   
@@ -14,10 +16,17 @@ class PopupDownloader: UIView {
   
   public var contentView: UIView!
   public var header: PopupDownloaderHeader!
+  public var taskCollectionView: DownloadTaskCollectionView!
   public var thumbnail: PopupDownloaderThumbnail!
   public var closeIcon: UIButton!
   
   private var thumbnailFrame: CGRect!
+  private var downloader: Downloader! {
+    didSet {
+      self.startObseveDownloader()
+    }
+  }
+  private var disposeBag: DisposeBag = DisposeBag()
   
   // MARK: Render state
   public var isThumbnailMode: Bool = true {
@@ -33,7 +42,11 @@ class PopupDownloader: UIView {
     super.init(frame: frame)
     initLayout()
   }
-  
+  convenience init(frame: CGRect = CGRect.zero, downloader: Downloader) {
+    self.init(frame: frame)
+    self.downloader = downloader
+    startObseveDownloader()
+  }
   func initLayout() {
     
     self.backgroundColor = .clear
@@ -51,6 +64,11 @@ class PopupDownloader: UIView {
     contentView.addSubview(header)
     header.fixInView(contentView, t: 0, r: 0, l: 0, h: 200)
     
+    taskCollectionView = DownloadTaskCollectionView()
+    taskCollectionView.downloader = downloader
+    contentView.addSubview(taskCollectionView)
+    taskCollectionView.fixInView(contentView, r: 0, b: 0, l: 0, h: 300)
+    
     closeIcon = UIButton()
     closeIcon.setBackgroundImage(UIImage(named: "close-circle"), for: [])
     self.addSubview(closeIcon)
@@ -58,7 +76,7 @@ class PopupDownloader: UIView {
     //    closeIcon.fixInView(contentView, b: 15)
     closeIcon.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
     closeIcon.addTarget(self, action: #selector(requestClose), for: [.touchUpInside])
-
+    
     thumbnail = PopupDownloaderThumbnail()
     self.addSubview(thumbnail)
     thumbnail.fullFixInView(self)
@@ -73,6 +91,14 @@ class PopupDownloader: UIView {
       thumbnailFrame = CGRect(x: window.bounds.width - PopupDownloader.THUMBNAIL_SIZE, y: window.bounds.height * 0.5, width: PopupDownloader.THUMBNAIL_SIZE, height: PopupDownloader.THUMBNAIL_SIZE)
     }
   }
+  
+  func startObseveDownloader(){
+    taskCollectionView.downloader = downloader
+    thumbnail.downloader = downloader
+    downloader.tasksRelay.subscribe(onNext: { (tasks) in
+      self.taskCollectionView.source = tasks
+    }).disposed(by: disposeBag)
+  }
 }
 extension PopupDownloader: PopupDownloaderThumbnailDelegate {
   func didTapThumbnail() {
@@ -80,21 +106,49 @@ extension PopupDownloader: PopupDownloaderThumbnailDelegate {
   }
   
   @objc func togglePopup() {
-    onModeChange()
+    if isThumbnailMode {
+      animateToThumb().done { (boo) in
+        self.onModeChange()
+        }.catch { (_) in
+          
+      }
+    }else{
+      onModeChange()
+      animateToFull()
+    }
+  }
+  func animateToThumb() -> Promise<Bool>{
+    return Promise<Bool> {seal in
+      UIView.animate(withDuration: 0.45, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: [.curveEaseIn], animations: {
+        self.contentView.frame = self.thumbnailFrame
+        self.contentView.layer.opacity = 0.3
+        self.backgroundColor = UIColor.gray.withAlphaComponent(0)
+      }){ boo in
+        self.frame = self.thumbnailFrame
+        self.backgroundColor = UIColor.gray.withAlphaComponent(1)
+        self.taskCollectionView.isFullMode = false
+        seal.fulfill(boo)
+      }
+    }
+  }
+  
+  func animateToFull(){
     guard let window: UIView = UIApplication.shared.keyWindow else {
       return
+    } 
+    self.frame = window.bounds
+    let cFrame: CGRect = contentView.frame
+    contentView.frame = thumbnailFrame
+    UIView.animate(withDuration: 0.45, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: [.curveLinear], animations: {
+      self.contentView.frame = cFrame
+      self.contentView.layer.opacity = 1
+      self.backgroundColor = UIColor.gray.withAlphaComponent(0.5)
+    }){ boo in
+      self.taskCollectionView.isFullMode = true
     }
-    let nextBgAlpha: CGFloat = isThumbnailMode ? 0 : 0.5
-    let nextFrame: CGRect = isThumbnailMode ? thumbnailFrame : window.bounds
-    UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: [.curveEaseInOut], animations: {
-      self.frame = nextFrame
-      self.backgroundColor = UIColor.gray.withAlphaComponent(nextBgAlpha)
-    }, completion: nil)
-    
   }
   
   func onModeChange(){
-
     self.contentView.isHidden = isThumbnailMode
     self.closeIcon.isHidden = isThumbnailMode
     self.thumbnail.isHidden = !isThumbnailMode
@@ -132,7 +186,7 @@ extension PopupDownloader: PopupDownloaderThumbnailDelegate {
       }
       
       self.center = CGPoint(x: isOnRightSide ? window.bounds.width - haflSize : haflSize, y: y)
- 
+      
       thumbnailFrame = self.frame
       break;
     default:
