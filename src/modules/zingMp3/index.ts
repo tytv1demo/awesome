@@ -1,0 +1,1 @@
+export { default as ZingMp3View } from './ZingMp3.view'

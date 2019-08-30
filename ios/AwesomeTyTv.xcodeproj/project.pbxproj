@@ -19,6 +19,7 @@
 		B6097448230FB9C000B37C7B /* YTVideoList+bridge.m in Sources */ = {isa = PBXBuildFile; fileRef = B6097447230FB9C000B37C7B /* YTVideoList+bridge.m */; };
 		B609744C230FCAF900B37C7B /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B609744B230FCAF900B37C7B /* VideoPlayer.swift */; };
 		B6178D0D2317B70D0053486C /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6178D0C2317B70D0053486C /* UIStackView+Extension.swift */; };
+		B6178D102317CAC70053486C /* ZingMp3Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6178D0F2317CAC70053486C /* ZingMp3Controller.swift */; };
 		B6563C57230D3A7A005940D5 /* TWI+Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6563C56230D3A7A005940D5 /* TWI+Video.swift */; };
 		B689C8EA23161FCD00664B26 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B689C8E923161FCD00664B26 /* UIView+Extension.swift */; };
 		B689C8ED23162A9400664B26 /* Downloader+PopupVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = B689C8EC23162A9400664B26 /* Downloader+PopupVIew.swift */; };
@@ -79,6 +80,7 @@
 		B6097447230FB9C000B37C7B /* YTVideoList+bridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "YTVideoList+bridge.m"; sourceTree = "<group>"; };
 		B609744B230FCAF900B37C7B /* VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
 		B6178D0C2317B70D0053486C /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
+		B6178D0F2317CAC70053486C /* ZingMp3Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZingMp3Controller.swift; sourceTree = "<group>"; };
 		B6563C53230D2BD4005940D5 /* AwesomeTyTv.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = AwesomeTyTv.entitlements; path = AwesomeTyTv/AwesomeTyTv.entitlements; sourceTree = "<group>"; };
 		B6563C56230D3A7A005940D5 /* TWI+Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TWI+Video.swift"; sourceTree = "<group>"; };
 		B689C8E923161FCD00664B26 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -257,6 +259,14 @@
 			name = VideoPlayer;
 			sourceTree = "<group>";
 		};
+		B6178D0E2317CAB00053486C /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				B6178D0F2317CAC70053486C /* ZingMp3Controller.swift */,
+			);
+			name = Audio;
+			sourceTree = "<group>";
+		};
 		B6563C54230D3A5B005940D5 /* Twilio */ = {
 			isa = PBXGroup;
 			children = (
@@ -308,6 +318,7 @@
 		B6B7E40C230C00AB003F33D8 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B6178D0E2317CAB00053486C /* Audio */,
 				B6563C54230D3A5B005940D5 /* Twilio */,
 				B6B7E40D230C00BF003F33D8 /* Youtube */,
 			);
@@ -740,6 +751,7 @@
 				B609744C230FCAF900B37C7B /* VideoPlayer.swift in Sources */,
 				B689C8F623166E3A00664B26 /* Downloader.swift in Sources */,
 				B6B7E40B230BF400003F33D8 /* Alamofire+RequestExt.swift in Sources */,
+				B6178D102317CAC70053486C /* ZingMp3Controller.swift in Sources */,
 				B689C8F82316721200664B26 /* DownloadTask.swift in Sources */,
 				B6097448230FB9C000B37C7B /* YTVideoList+bridge.m in Sources */,
 				B6B7E409230BF346003F33D8 /* Alamofire+RequestAdapter.swift in Sources */,

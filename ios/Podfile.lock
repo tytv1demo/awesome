@@ -102,6 +102,11 @@ PODS:
     - React
     - SDWebImage (~> 5.0)
     - SDWebImageWebPCoder (~> 0.2.3)
+  - RNSound (0.11.0):
+    - React
+    - RNSound/Core (= 0.11.0)
+  - RNSound/Core (0.11.0):
+    - React
   - RNTwilioVideo (1.0.0):
     - PromiseKit
     - React
@@ -150,6 +155,7 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - React-RCTWebSocket (from `../node_modules/react-native/Libraries/WebSocket`)
   - RNFastImage (from `../node_modules/react-native-fast-image`)
+  - RNSound (from `../node_modules/react-native-sound`)
   - RNTwilioVideo (from `../node_modules/react-native-twilio-video`)
   - RxCocoa (~> 5)
   - RxSwift (~> 5)
@@ -217,6 +223,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/Libraries/WebSocket"
   RNFastImage:
     :path: "../node_modules/react-native-fast-image"
+  RNSound:
+    :path: "../node_modules/react-native-sound"
   RNTwilioVideo:
     :path: "../node_modules/react-native-twilio-video"
   yoga:
@@ -248,6 +256,7 @@ SPEC CHECKSUMS:
   React-RCTVibration: 2105b2e0e2b66a6408fc69a46c8a7fb5b2fdade0
   React-RCTWebSocket: cd932a16b7214898b6b7f788c8bddb3637246ac4
   RNFastImage: 9b0c22643872bb7494c8d87bbbb66cc4c0d9e7a2
+  RNSound: da030221e6ac7e8290c6b43f2b5f2133a8e225b0
   RNTwilioVideo: bf4a04a79fc90e7465ffc5c346a8f46d279703e9
   RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
   RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
