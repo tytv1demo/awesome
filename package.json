@@ -12,7 +12,7 @@
     "add": "^2.0.6",
     "events": "^3.0.0",
     "react": "16.8.6",
-    "react-native": "^0.60.5",
+    "react-native": "^0.62.3",
     "react-native-fast-image": "^7.0.2",
     "react-native-lightbox": "^0.8.0",
     "react-native-sound": "^0.11.0",
